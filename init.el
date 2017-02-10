@@ -167,3 +167,11 @@
 ;; Enable yasnippet
 (require 'yasnippet)
 (yas-global-mode 1)
+
+;; Enable Vivado mode for XDC files
+;; Enable Vivado mode
+(add-to-list 'load-path '"~/.emacs.d/vivado-mode")
+(load "vivado-mode.el")
+(setq auto-mode-alist (cons  '("\\.xdc\\'" . vivado-mode) auto-mode-alist))
+(add-hook 'vivado-mode-hook '(lambda () (font-lock-mode 1)))
+(autoload 'vivado-mode "vivado-mode")
