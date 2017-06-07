@@ -185,3 +185,35 @@
 (setq auto-mode-alist (cons  '("\\.xdc\\'" . vivado-mode) auto-mode-alist))
 (add-hook 'vivado-mode-hook '(lambda () (font-lock-mode 1)))
 (autoload 'vivado-mode "vivado-mode")
+
+;; Set up Verilog mode
+(setq verilog-indent-level                    4
+      verilog-indent-level-module             4
+      verilog-indent-level-declaration        0
+      verilog-indent-level-behavioral         0
+      verilog-indent-level-directive          0
+      verilog-case-indent                     4
+      verilog-cexp-indent                     4
+      verilog-auto-newline                    nil
+      verilog-auto-indent-on-newline          t
+      verilog-auto-delete-trailing-whitespace t
+      verilog-auto-endcomments                t
+      verilog-tab-always-indent               t
+      verilog-minimum-comment-distance        40
+      verilog-indent-begin-after-if           nil 
+      verilog-align-ifelse                    t
+      verilog-auto-lineup                     (quote all))
+(global-set-key (kbd "<f12>") 'verilog-align-inst)
+
+(defun verilog-align-inst ()
+  (interactive)
+  (backward-up-list)
+  (mark-sexp)
+  (forward-char)
+  (align-regexp (region-beginning) (region-end) "\\(\\s-*\\)(" 1 1 nil)
+  (backward-char)
+  (mark-sexp)
+  (forward-char)
+  (align-regexp (region-beginning) (region-end) "\\(\\s-*\\))" 1 1 nil))
+
+(add-to-list 'aggressive-indent-excluded-modes 'verilog-mode)
