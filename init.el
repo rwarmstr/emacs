@@ -22,6 +22,7 @@
     flycheck
     flycheck-color-mode-line
     elpy
+    jedi
     magit
     bitbake
     company
@@ -44,6 +45,10 @@
 (setq inhibit-startup-message t)
 (show-paren-mode 1)
 (column-number-mode 1)
+
+(setq py-python-command "/usr/bin/python3")
+(setq elpy-rpc-python-command "python3")
+(setq python-shell-interpreter "python3")
 
 ;; Enable smart tabs more for C, C++, and JavaScript
 (smart-tabs-insinuate 'c 'c++ 'javascript)
@@ -76,6 +81,10 @@
 (load-theme 'material t)
 
 (elpy-enable)
+
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
+(setq jedi:environment-root "jedi")
 
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
