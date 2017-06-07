@@ -122,6 +122,7 @@
         company-show-numbers t
         company-tooltip-limit 20
         company-dabbrev-downcase nil
+        company-irony-ignore-case t
         company-backends '((company-c-headers company-irony company-gtags))
         )
   :bind ("C-;" . company-complete-common)
