@@ -217,3 +217,5 @@
   (align-regexp (region-beginning) (region-end) "\\(\\s-*\\))" 1 1 nil))
 
 (add-to-list 'aggressive-indent-excluded-modes 'verilog-mode)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
