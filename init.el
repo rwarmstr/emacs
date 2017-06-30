@@ -219,3 +219,6 @@
 (add-to-list 'aggressive-indent-excluded-modes 'verilog-mode)
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
