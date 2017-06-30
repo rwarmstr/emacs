@@ -189,7 +189,7 @@
 ;; Set up Verilog mode
 (setq verilog-indent-level                    4
       verilog-indent-level-module             4
-      verilog-indent-level-declaration        0
+      verilog-indent-level-declaration        4
       verilog-indent-level-behavioral         0
       verilog-indent-level-directive          0
       verilog-case-indent                     4
