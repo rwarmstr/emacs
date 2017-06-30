@@ -144,7 +144,7 @@
        (not (string-match "^\*.*\*$" (buffer-name)))
        (not (eq major-mode 'dired-mode))
        (not (eq major-mode 'terminal-mode)))
-      (if (> (window-width) fci-rule-column) 
+      (if (> (window-width) fci-rule-column)
           (fci-mode 1)
         (fci-mode 0))
     (fci-mode 0)
@@ -200,7 +200,7 @@
       verilog-auto-endcomments                t
       verilog-tab-always-indent               t
       verilog-minimum-comment-distance        40
-      verilog-indent-begin-after-if           nil 
+      verilog-indent-begin-after-if           nil
       verilog-align-ifelse                    t
       verilog-auto-lineup                     (quote all))
 (global-set-key (kbd "<f12>") 'verilog-align-inst)
