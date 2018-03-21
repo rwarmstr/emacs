@@ -159,7 +159,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dired-auto-revert-buffer (quote dired-directory-changed-p))
- '(dired-dwim-target t))
+ '(dired-dwim-target t)
+ '(tcl-continued-indent-level 4)
+ '(tcl-indent-level 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -222,6 +224,10 @@
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+;; Turn on global auto revert mode
+(global-auto-revert-mode 1)
+
 ;; Enable hide-show mode for C and C++
 (add-hook 'c-mode-common-hook
           (lambda()
