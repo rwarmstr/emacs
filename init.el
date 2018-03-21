@@ -222,3 +222,11 @@
 
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+;; Enable hide-show mode for C and C++
+(add-hook 'c-mode-common-hook
+          (lambda()
+            (local-set-key (kbd "C-c <right>") 'hs-show-block)
+            (local-set-key (kbd "C-c <left>") 'hs-hide-block)
+            (local-set-key (kbd "C-c <up>") 'hs-hide-all)
+            (local-set-key (kbd "C-c <down>") 'hs-show-all)
+            (hs-minor-mode t)))
